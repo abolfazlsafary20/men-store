@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>فروشگاه اینترنتی شیک پوش</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+    <!-- هدر سایت -->
+    <header>
+        <div class="logo">
+        <a href="index.html">شیک پوش</a>
+ </div>
+
+  <div class="header-profile">
+  <i class="fas fa-bars profile-icon" id="profileIcon"></i> <!-- آیکون 3 خط -->
+  <div id="profile-container"></div> <!-- منو اینجا لود میشه -->
+  </div>
+
+    <div class="search-box">
+    <i class="fa fa-search search-icon"></i>
+    <input type="text" placeholder="جستجو کنید..." />
+</div>
+
+<div class="auth-cart-box">
+    <!-- ثبت نام / ورود با آیکن و متن زیرش -->
+    <div class="signup-box">
+        <a href="#" onclick="showSignupForm()">
+            <i class="fa-solid fa-user"></i>
+        </a>
+        <span class="signup-text">ورود / ثبت نام</span>
+    </div>
+
+    <!-- سبد خرید -->
+    <div class="cart-icon">
+        <a href="cart.php">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </a>
+    </div>
+</div>
+       
+    </header>
+
+    <!-- منو دسته‌بندی -->
+    <div class="sub-header">
+    <nav class="category-menu">
+        <span class="menu-item" data-section="tshirt">تیشرت‌</span>
+        <span class="menu-item" data-section="shoes">کفش‌ها</span>
+        <span class="menu-item" data-section="pants">شلوار</span>
+        <span class="menu-item" data-section="watch">ساعت‌</span>
+        <span class="menu-item" data-section="hat">کلاه</span>
+        <span class="menu-item" data-section="belt">کمربند</span>
+    </nav>
+</div>
+    
+    <!-- Overlay تار وقتی فرم ظاهر می‌شود -->
+    <div id="overlay" onclick="closeForms()"></div>
+
+    <main id="main-content">
+        
+        <!-- فرم ثبت نام -->
+        <form id="registerForm" method="POST" action="register.php" style="display: none;">
+            <button type="button" id="closeRegisterForm" aria-label="بستن فرم ثبت‌نام" class="close-btn">❌</button>
+            <h2>فرم ثبت نام</h2>
+            <label for="register-username">نام کاربری:</label>
+            <input type="text" id="register-username" name="username" required>
+            <label for="register-email">ایمیل:</label>
+            <input type="email" id="register-email" name="email" required>
+            <label for="register-password">رمز عبور:</label>
+            <input type="password" id="register-password" name="password" required>
+            <button type="submit">ثبت نام</button>
+            <p id="register-message"></p>
+            <p>
+                <a href="#" onclick="showLoginForm()">قبلاً ثبت‌نام کرده‌اید ؟</a>
+            </p>
+        </form>
+
+        <!-- فرم ورود -->
+        <form id="loginForm" method="POST" action="login.php" style="display: none;">
+            <button type="button" id="closeLoginForm" aria-label="بستن فرم ورود" class="close-btn">❌</button>
+            <h2>ورود به حساب کاربری</h2>
+            <label for="login-email">ایمیل:</label>
+            <input type="email" id="login-email" name="email" required>
+            <label for="login-password">رمز عبور:</label>
+            <input type="password" id="login-password" name="password" required>
+            <button type="submit">ورود</button>
+            <p id="login-message"></p>
+        </form>
+
+        <!-- پیام موفقیت ورود -->
+        <div id="successMessage"></div>
+        <!-- بنر متحرک -->
+<div class="banner-slider">
+    <img src="images.banner/tshirt.jpg" alt="بنر 1" class="active">
+    <img src="images.banner/pants.jpg" alt="بنر 2">
+    <img src="images.banner/shoes.jpg" alt="بنر 3">
+    <img src="images.banner/watch.jpg" alt="بنر 4">
+    <img src="images.banner/hat.jpg" alt="بنر 5">
+
+    <!-- فلش‌ها باید داخل بنر باشن -->
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+</div>
+
+         
+        <!-- محصولات -->
+<!-- محصولات -->
+<section class="products-group">
+  <h2 class="group-title">تیشرت‌ها</h2>
+  <div class="products">
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.tshirt/tshirt1-front.jpg" alt="تیشرت">
+        <img class="hover-img" src="images.tshirt/tshirt1-model.jpg" alt="تیشرت">
+        <p class="price">۳۲۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.tshirt/tshirt2-front.jpg" alt="تیشرت">
+        <img class="hover-img" src="images.tshirt/tshirt2-model.jpg" alt="تیشرت">
+        <p class="price">۲۹۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.tshirt/tshirt3-front.jpg" alt="تیشرت">
+        <img class="hover-img" src="images.tshirt/tshirt3-model.jpg" alt="تیشرت">
+        <p class="price">۳۵۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.tshirt/tshirt4-front.jpg" alt="تیشرت">
+        <img class="hover-img" src="images.tshirt/tshirt4-model.jpg" alt="تیشرت">
+        <p class="price">۳۱۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+  </div>
+</section>
+
+<section class="products-group">
+  <h2 class="group-title">شلوارها</h2>
+  <div class="products">
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.pants/pants1-front.jpg" alt="شلوار">
+        <img class="hover-img" src="images.pants/pants1-model.jpg" alt="شلوار">
+        <p class="price">۵۰۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.pants/pants2-front.jpg" alt="شلوار">
+        <img class="hover-img" src="images.pants/pants2-model.jpg" alt="شلوار">
+        <p class="price">۴۶۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.pants/pants3-front.jpg" alt="شلوار">
+        <img class="hover-img" src="images.pants/pants3-model.jpg" alt="شلوار">
+        <p class="price">۴۹۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.pants/pants4-front.jpg" alt="شلوار">
+        <img class="hover-img" src="images.pants/pants4-model.jpg" alt="شلوار">
+        <p class="price">۴۷۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+  </div>
+</section>
+
+<section class="products-group">
+  <h2 class="group-title">کفش ها</h2>
+  <div class="products">
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.shoes/shoes1-front.jpg" alt="کتونی">
+        <img class="hover-img" src="images.shoes/shoes1-model.jpg" alt="کتونی">
+        <p class="price">۶۵۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.shoes/shoes2-front.jpg" alt="کتونی">
+        <img class="hover-img" src="images.shoes/shoes2-model.jpg" alt="کتونی">
+        <p class="price">۷۲۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.shoes/shoes3-front.jpg" alt="کتونی">
+        <img class="hover-img" src="images.shoes/shoes3-model.jpg" alt="کتونی">
+        <p class="price">۶۸۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.shoes/shoes4-front.jpg" alt="کتونی">
+        <img class="hover-img" src="images.shoes/shoes4-model.jpg" alt="کتونی">
+        <p class="price">۷۰۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+  </div>
+</section>
+
+<section class="products-group">
+  <h2 class="group-title">ساعت‌ها</h2>
+  <div class="products">
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.watch/watch1-front.jpg" alt="ساعت">
+        <img class="hover-img" src="images.watch/watch1-model.jpg" alt="ساعت">
+        <p class="price">۱,۲۰۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.watch/watch2-front.jpg" alt="ساعت">
+        <img class="hover-img" src="images.watch/watch2-model.jpg" alt="ساعت">
+        <p class="price">۹۸۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.watch/watch3-front.jpg" alt="ساعت">
+        <img class="hover-img" src="images.watch/watch3-model.jpg" alt="ساعت">
+        <p class="price">۱,۱۰۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.watch/watch4-front.jpg" alt="ساعت">
+        <img class="hover-img" src="images.watch/watch4-model.jpg" alt="ساعت">
+        <p class="price">۱,۱۵۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+  </div>
+</section>
+
+<section class="products-group">
+  <h2 class="group-title">کلاه‌ها</h2>
+  <div class="products">
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.hat/hat1-front.jpg" alt="کلاه">
+        <img class="hover-img" src="images.hat/hat1-model.jpg" alt="کلاه">
+        <p class="price">۲۵۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.hat/hat2-front.jpg" alt="کلاه">
+        <img class="hover-img" src="images.hat/hat2-model.jpg" alt="کلاه">
+        <p class="price">۲۸۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.hat/hat3-front.jpg" alt="کلاه">
+        <img class="hover-img" src="images.hat/hat3-model.jpg" alt="کلاه">
+        <p class="price">۳۰۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.hat/hat4-front.jpg" alt="کلاه">
+        <img class="hover-img" src="images.hat/hat4-model.jpg" alt="کلاه">
+        <p class="price">۲۷۵,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+  </div>
+</section>
+
+<section class="products-group">
+  <h2 class="group-title">کمربندها</h2>
+  <div class="products">
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.belt/belt1-front.jpg" alt="کمربند">
+        <img class="hover-img" src="images.belt/belt1-model.jpg" alt="کمربند">
+        <p class="price">۶۵۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.belt/belt2-front.jpg" alt="کمربند">
+        <img class="hover-img" src="images.belt/belt2-model.jpg" alt="کمربند">
+        <p class="price">۷۲۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.belt/belt3-front.jpg" alt="کمربند">
+        <img class="hover-img" src="images.belt/belt3-model.jpg" alt="کمربند">
+        <p class="price">۶۸۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+    <div class="product-wrapper">
+      <div class="product-card">
+        <img class="main-img" src="images.belt/belt4-front.jpg" alt="کمربند">
+        <img class="hover-img" src="images.belt/belt4-model.jpg" alt="کمربند">
+        <p class="price">۷۰۰,۰۰۰ تومان</p>
+      </div>
+      <button class="buy-btn">خرید</button>
+    </div>
+  </div>
+</section>
+    </main>
+    <script src="main.js"></script>
+    <div id="footer"></div>
+
+
+<script>
+  fetch("footer.php")  // اینجا آدرس فوترت رو بده
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+</script>
+<script>
+  fetch("profile.php")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("profile-container").innerHTML = data;
+    });
+</script>
+
+
+</body>
+</html>

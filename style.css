@@ -1,0 +1,830 @@
+/* تنظیمات عمومی */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color:#ffffff;
+    color: #333;
+    background-image:none; /* آدرس عکس رو درست بنویس */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+}
+
+/* هدر */
+header {
+    background-color:#f5f5f5; 
+    color: white;
+    padding: 45px;
+    display: flex;
+    justify-content: center;  /* اینجا وسط متن رو می‌آوریم */
+    align-items: center;  /* اینجا متن رو وسط عمودی قرار می‌دهیم */
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #f5f5f5;
+}
+
+/* تنظیمات لوگو */
+header .logo {
+    text-align: center;
+    flex-grow: 1;
+    margin-top: -10px; /* اینجا متن رو کمی بالاتر می‌بریم */
+}
+
+header .logo a {
+    color:#000000;
+    font-size: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.header-profile {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-icon {
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
+
+  /* موقعیت جدید */
+  position: absolute;  /* اضافه می‌کنیم تا top و right کار کنه */
+  top: -40px;            /* فاصله از بالای container */
+  right: -20px;         /* فاصله از سمت راست container */
+}
+
+.profile-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: -5px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 1000;
+  min-width: 180px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.profile-menu.active {
+  display: block;
+}
+
+.profile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-menu ul li {
+  border-bottom: 1px solid #eee;
+}
+
+.profile-menu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-menu ul li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 550;
+  transition: background 0.3s, color 0.3s;
+  text-align: right;   /* راست‌چین کردن متن‌ها */
+  direction: rtl;      /* راست‌چین بودن جهت متن */
+}
+
+.profile-menu ul li a:hover {
+  background-color:#f5f5f5;
+  border-radius: 6px;
+}
+
+
+.search-box {
+    position: absolute;
+    left:170px;
+    top: 30px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 30px;
+    padding: 8px 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    direction: ltr; /* مهم: فلکس سمت چپ بچینه */
+}
+
+/* آیکن سرچ سمت چپ */
+.search-box .search-icon {
+    font-size: 23px;
+    color: #333;
+    margin-right: 8px; /* فاصله از ورودی */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.search-box .search-icon:hover {
+    transform: scale(1.2);
+}
+
+/* ورودی راست چین */
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background: transparent;
+    text-align: right; /* متن راست چین */
+    direction: rtl;    /* متن داخل input راست چین باشد */
+}
+
+/*  سبد خرید */
+header .cart-icon {
+    position: absolute;
+    left: 25px;
+    top: 30px;
+    background: none; /* حذف پس‌زمینه */
+    padding: 0;       /* حذف فاصله داخلی */
+    border: none;     /* حذف هر نوع کادر */
+    box-shadow: none; /* حذف سایه */
+    font-size: 25px;  /* اندازه آیکن */
+    cursor: pointer;
+    z-index: 999;
+    transition: transform 0.4s ease; /* هاور نرم */
+}
+
+header .cart-icon:hover {
+    transform: translateY(-1px) scale(1.01); /* حرکت و بزرگ شدن کم و نرم */
+}
+
+header .cart-icon a {
+    color: #333;      /* رنگ آیکن */
+    text-decoration: none;
+}
+
+/* باکس ثبت‌نام / ورود فقط آیکن + متن */
+header .signup-box {
+    position: absolute;
+    left: 60px;
+    top: 30px;
+    background: none;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    z-index: 999;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column; /* آیکن بالا، متن پایین */
+    align-items: center;
+    transition: transform 0.4s ease; /* هاور نرم روی کل باکس */
+}
+
+header .signup-box:hover {
+     transform: translateY(-1px) scale(1.01); /* بزرگ شدن نرم کل باکس */
+}
+
+header .signup-box a {
+    font-size: 25px; /* اندازه آیکن */
+    color: #333;
+    text-decoration: none;
+}
+
+header .signup-box span {
+    font-size: 17px; /* اندازه متن زیر آیکن */
+    margin-top: 5px;
+    color: #333;
+    text-align: center;
+}
+
+
+/* استایل برای نمایش محصولات */
+main {
+    padding: 40px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #333;
+    font-weight: bold;
+}
+
+.products {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+    margin: 20px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.product button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+    background-color: #45a049;
+}
+
+/* طراحی فوتر */
+
+/* ===== Footer Style ===== */
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 40px 20px 20px;
+  font-family: "Vazir", sans-serif;
+  direction: rtl;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-about {
+  flex: 1;
+  min-width: 280px;
+}
+
+.footer-logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.footer-desc {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #ddd;
+}
+
+.footer-address {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footer-newsletter {
+  flex: 1;
+  min-width: 280px;
+}
+
+.footer-newsletter h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #ffcc00;
+}
+
+.footer-newsletter p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+
+.newsletter-form button {
+  background: #ffcc00;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+  background: #ffaa00;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffcc00;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #333;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+
+.sub-header {
+    background-color: transparent;  /* هدر شفاف باشه */
+    padding: 0;
+    position: relative;
+    margin-top: 10px; /* فاصله زیر هدر */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.sub-header .menu-item {
+    background: none;
+    display: inline-block; /* مهم برای transform */
+    color: #111;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 20px;
+    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1);
+    font-size: 25px;
+    position: relative;
+    transition: transform 0.4s ease;
+}
+
+.sub-header .menu-item:hover {
+    transform: translateY(-4px);
+}
+
+/* خطوط جداکننده فقط بین آیتم‌ها */
+.sub-header .menu-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -20px;             /* فاصله از متن برای ثابت موندن خط */
+    transform: translateY(-50%);
+    height: 35px;
+    border-right: 2px solid #000;
+    pointer-events: none;     /* تاثیری روی hover نداره */
+}
+
+
+#registerForm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 10000;  /* روی همه چیز */
+  direction: rtl;
+  display: none;  /* اول مخفی */
+  font-family: Arial, sans-serif;
+}
+
+/*دکمه بالا خروج سمت چپ */
+#registerForm .close-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px; /* چون راست به چپه، دکمه سمت چپ میاد */
+  font-size: 22px;
+  color: #666;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+#registerForm .close-btn:hover {
+  color: #000;
+}
+
+/* لِیبل‌ها راست‌چین و فاصله */
+#registerForm label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  text-align: right;  /* متن لِیبل سمت راست */
+  font-size: 14px;
+}
+
+/* اینپوت‌ها با عرض کامل فرم */
+#registerForm input {
+  width: 80%;
+  padding: 8px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+  direction: ltr; /* تایپ توی اینپوت چپ به راست */
+}
+
+#registerForm button[type="submit"] {
+  width: 50%;
+  padding: 10px;
+  background-color: #4CAF50;  /* سبز */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* پیام خطا یا موفقیت */
+#register-message {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: red; /* رنگ پیش‌فرض پیام */
+}
+
+#closeRegisterForm {
+  all: unset; /* تمام استایل‌های پیش‌فرض رو حذف می‌کنه */
+  color: black;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  position: absolute; /* اگر لازم دارید موقعیتش کنترل بشه */
+  top: 10px;
+  left: 10px;
+  user-select: none;
+}
+
+#closeRegisterForm:hover {
+  color: red;
+}
+
+/* فرم ورود */
+#loginForm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 10000; /* روی همه چیز */
+  direction: rtl;
+  display: none; /* اول مخفی */
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 900; /* پشت فرم ولی بالای بقیه */
+}
+
+/* فرم ثبت‌نام */
+#registerForm {
+    display: none;
+    position: fixed; /* روی همه محتوا */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    direction: rtl;
+    z-index: 1000; /* بالای overlay */
+}
+
+/* فرم ورود */
+#loginForm {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    direction: rtl;
+    z-index: 1000;
+}
+
+#loginForm label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  text-align: right;
+  font-size: 14px;
+}
+
+#loginForm input {
+  width: 80%;
+  padding: 8px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+  direction: ltr;
+}
+
+#loginForm button[type="submit"] {
+  width: 40%;        /* هم عرض با input */
+  padding: 10px;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: block;    /* به صورت بلاک */
+  margin: 0 auto;    /* وسط چین */
+}
+
+#loginForm .close-btn {
+  background: none; 
+  border: none; 
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 22px;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+#loginForm .close-btn:hover {
+  color: #000;
+}
+
+#login-message {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: red;
+}
+
+#successMessage {
+  display: none;          /* اول مخفی */
+  text-align: center;
+  margin-top: 50px;
+  font-size: 24px;
+  color: rgb(12, 177, 0);
+  font-weight: bold;
+}
+
+/* بخش محصولات با کارت‌های بزرگ‌تر */
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 کارت در هر ردیف */
+    gap: 150px 40px; /* فاصله بین ردیف‌ها و ستون‌ها (row gap 50px, column gap 25px) */
+    padding: 20px;
+    justify-items: center;
+}
+
+/* کارت هر محصول */
+.product-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
+    position: relative;
+    width: 255px; /* عرض بزرگ‌تر */
+    height: 380px; /* ارتفاع بزرگ‌تر */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* تصویر محصول */
+.product-card img {
+    width: 100%;
+    height:auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.7s ease;
+}
+
+/* تصویر دوم روی هاور */
+.product-card .hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.product-card:hover .hover-img {
+    opacity: 1;
+}
+
+.product-card:hover .main-img {
+    opacity: 0;
+}
+
+.product-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px; /* فاصله بین ردیف‌ها */
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  background: #fff;
+}
+
+.buy-btn {
+  background-color: #28a745; /* سبز خوشرنگ */
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.buy-btn:active {
+  transform: scale(0.95); /* موقع کلیک کوچیک بشه */
+}
+
+
+/* حذف کد محصول (دیگه استفاده نمی‌کنیم) */
+
+/* قیمت زیر کارت */
+.product-card + .price,
+.product-card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    margin-top: 25px; /* فاصله بالایی از کارت */
+}
+
+/* افکت هاور */
+.product-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.group-title {
+    width: 100%;             /* پر کردن عرض */
+    text-align: center;      /* وسط چین کردن متن */
+    font-size: 28px;         /* اندازه بزرگتر متن */
+    font-weight: bold;       /* ضخامت متن */
+    color: #111;             /* رنگ متن */
+    margin: 60px 0 30px 0;   /* فاصله بالا و پایین از کارت‌ها */
+}
+
+.banner-slider {
+    position: relative;
+    width: 100%;
+    height: 500px; /* ارتفاع بنر همون قبلی */
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin: -20px auto 0 auto;
+    z-index: 10;
+    border-radius: 20px; /* گرد کردن گوشه‌های بنر */
+}
+
+.banner-slider img {
+    width: 90%;       /* اندازه افقی */
+    height: 100%;     /* همون ارتفاعی که دادی */
+    display: none;    /* مهم برای margin auto */
+    margin: 0 auto;   /* وسط چین افقی */
+    border-radius: 20px; /* گرد کردن گوشه‌های عکس‌ها */
+    transition: transform 0.4s ease; /* اگر خواستی افکت نرم روی عکس‌ها باشه */
+}
+
+.banner-slider img.active {
+    display: block;
+}
+
+.banner-slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    color: black;
+    border: none;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 30;
+}
+
+.banner-slider .prev {
+    left: 0;
+}
+
+.banner-slider .next {
+    right: 0;
+}
+
