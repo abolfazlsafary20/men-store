@@ -16,9 +16,19 @@
  </div>
 
   <div class="header-profile">
-  <i class="fas fa-bars profile-icon" id="profileIcon"></i> <!-- آیکون 3 خط -->
-  <div id="profile-container"></div> <!-- منو اینجا لود میشه -->
-  </div>
+    <i class="fas fa-bars profile-icon" id="profileIcon"></i> <!-- آیکون 3 خط -->
+    <div id="profile-container"></div> <!-- منو اینجا لود میشه -->
+</div>
+
+<!-- منوی پروفایل -->
+<div id="profileMenu" class="profile-menu">
+  <ul>
+    <li><a href="profile.php">پروفایل من</a></li>
+    <li><a href="orders.php">سفارش‌ها</a></li>
+    <li><a href="settings.php">تنظیمات</a></li>
+    <li><a href="logout.php">خروج</a></li>
+  </ul>
+</div>
 
     <div class="search-box">
     <i class="fa fa-search search-icon"></i>
@@ -105,8 +115,6 @@
     <button class="next">&#10095;</button>
 </div>
 
-         
-        <!-- محصولات -->
 <!-- محصولات -->
 <section class="products-group">
   <h2 class="group-title">تیشرت‌ها</h2>
@@ -341,8 +349,6 @@
     </main>
     <script src="main.js"></script>
     <div id="footer"></div>
-
-
 <script>
   fetch("footer.php")  // اینجا آدرس فوترت رو بده
     .then(response => response.text())
@@ -350,14 +356,6 @@
       document.getElementById("footer").innerHTML = data;
     });
 </script>
-<script>
-  fetch("profile.php")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("profile-container").innerHTML = data;
-    });
-</script>
-
-
 </body>
 </html>
+

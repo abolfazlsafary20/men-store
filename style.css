@@ -24,7 +24,7 @@ header {
     display: flex;
     justify-content: center;  /* اینجا وسط متن رو می‌آوریم */
     align-items: center;  /* اینجا متن رو وسط عمودی قرار می‌دهیم */
-    position: relative;
+    position:relative;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-bottom: 2px solid #f5f5f5;
 }
@@ -56,16 +56,29 @@ header .logo a {
   transition: color 0.3s;
 
   /* موقعیت جدید */
-  position: absolute;  /* اضافه می‌کنیم تا top و right کار کنه */
+  position: relative;  /* اضافه می‌کنیم تا top و right کار کنه */
   top: -40px;            /* فاصله از بالای container */
   right: -20px;         /* فاصله از سمت راست container */
 }
 
-.profile-menu {
-  display: none;
+.header-profile {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-icon {
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
+  position: relative; 
+}
+
+#profileMenu {
+  display: none; /* مخفی به‌طور پیش‌فرض */
   position: absolute;
-  top: 0;
-  right: -5px;
+  top: 40px; /* فاصله از آیکون */
+  right: 0;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -75,25 +88,25 @@ header .logo a {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.profile-menu.active {
-  display: block;
+#profileMenu.active {
+  display: block; /* وقتی منو فعال باشه نمایش داده میشه */
 }
 
-.profile-menu ul {
+#profileMenu ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.profile-menu ul li {
+#profileMenu ul li {
   border-bottom: 1px solid #eee;
 }
 
-.profile-menu ul li:last-child {
+#profileMenu ul li:last-child {
   border-bottom: none;
 }
 
-.profile-menu ul li a {
+#profileMenu ul li a {
   display: block;
   padding: 10px;
   text-decoration: none;
@@ -104,7 +117,7 @@ header .logo a {
   direction: rtl;      /* راست‌چین بودن جهت متن */
 }
 
-.profile-menu ul li a:hover {
+#profileMenu ul li a:hover {
   background-color:#f5f5f5;
   border-radius: 6px;
 }
